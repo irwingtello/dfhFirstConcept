@@ -2,7 +2,7 @@ const serverUrl = "https://xf2slglmhlsr.usemoralis.com:2053/server";
 const appId = "BJg5V4IlNGGMSohvAX0Oe0kmWLMfvALWdbNlzZFA";
 const pinataImage="https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1";
 const dfhAddress="0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c";
-const nftPortKey="0a108b59-a733-49ff-bc04-6381a941af88";
+const nftPortKey="9a4f05ce-7b62-41b4-b85d-ece09114bb17";
 Moralis.start({ serverUrl, appId });
 
 async function login() {
@@ -127,15 +127,16 @@ async function logOut() {
 
   async function mintNFT(metadataUri,minToThisAddress,contract_address){
     console.log(metadataUri);
+    let body =  "{\"chain\":\"polygon\",\"contract_address\":\""+contract_address +"\",\"metadata_uri\":\""+ metadataUri+"\",\"mint_to_address\":\""+minToThisAddress+"\"}";
+    console.log(body);
     const response = await fetch("https://api.nftport.xyz/v0/mints/customizable", {
       "method": "POST",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "0a108b59-a733-49ff-bc04-6381a941af88"
       },
-      "body": "{\"chain\":\"polygon\",\"contract_address\":\"0x8B4A8EEC90198d44709599Ded620236885e5059B,\"metadata_uri\":\""+ metadataUri+"\",\"mint_to_address\":\"0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c\"}"
+      "body":body
     })
-  
     const data = await response.json();
     return data;
    
