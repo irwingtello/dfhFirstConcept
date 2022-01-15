@@ -45,7 +45,7 @@ async function logOut() {
     request.save()
     .then((request) => {
       // Execute any logic that should take place after the object is saved.
-      alert('New object created with objectId: ' + request.id);
+      alert('New request created [ID]: ' + request.id);
       document.getElementById('txtFullName').value="";
       document.getElementById('txtReasons').value="";
       document.getElementById('txtAmountUSD').value=0;
