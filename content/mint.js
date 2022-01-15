@@ -1,6 +1,8 @@
 const serverUrl = "https://xf2slglmhlsr.usemoralis.com:2053/server";
 const appId = "BJg5V4IlNGGMSohvAX0Oe0kmWLMfvALWdbNlzZFA";
-const _contractAddress="0x8cFc75FeF3194872FaB7364959FC69D207a22aC9";
+const pinataImage="https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1";
+const dfhAddress="0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c";
+const nftPortKey="0a108b59-a733-49ff-bc04-6381a941af88";
 Moralis.start({ serverUrl, appId });
 
 async function login() {
@@ -60,13 +62,11 @@ async function logOut() {
 
   async function readData()
   {
-    alert("Hello");
     const Request = Moralis.Object.extend("Request");
     const query = new Moralis.Query(Request);
     query.equalTo("status", "ReadyToLend");
     const results = await query.find();
     console.log(results);
-    alert("Successfully retrieved " + results.length);
     // Do something with the returned Moralis.Object values
     for (let i = 0; i < results.length; i++) {
       const object = results[i];
@@ -81,10 +81,93 @@ async function logOut() {
       for ( let nftCounter=0; nftCounter<12; nftCounter++)
       {
         let element = document.getElementById('iterative');
-        element.innerHTML +='<div class="col"> <div class="card shadow-sm"> <img width="100%" height="100%" alt="NFT" src="https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1"/> <div class="card-body"> <p class="card-text">' + discordUser+'</p><p class="card-text">' + "Money Requested: $" + moneyRequested +' USD</p><p class="card-text">' + "NFT Value: $" +nftAmountPerNFT.toFixed(0) +' USD</p><div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="mint(\'' +  "" + '\',\''+ ""+"\'," + "" +' )">Mint</button> </div></div></div></div>';
+        element.innerHTML +='<div class="col"> <div class="card shadow-sm"> <img width="100%" height="100%" alt="NFT" src="https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1"/> <div class="card-body"> <p class="card-text">' + discordUser+'</p><p class="card-text">' + "Money Requested: $" + moneyRequested +' USD</p><p class="card-text">' + "NFT Value: $" +nftAmountPerNFT.toFixed(0) +' USD</p><div class="d-flex justify-content-between align-items-center"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="mint(\'' +  discordUser + '\',\''+ nftAmountPerNFT.toFixed(0) + '\',\''+ fullName+"\'," + debtTerm +')">Mint</button> </div></div></div></div>';
       }
     }
   }
+
+  async function mint(discordUser,nftAmountPerNFT ,fullName,debtTerm){
+    //const metadata =await uploadMetadataToIPFS(discordUser,nftAmountPerNFT ,fullName,debtTerm);
+    //console.log(metadata);
+    const metadata=await uploadMetadataToIPFS(discordUser,nftAmountPerNFT ,fullName,debtTerm);
+    console.log(metadata);
+    const data= await mintNFT(metadata,"0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c","0x8B4A8EEC90198d44709599Ded620236885e5059B");
+    console.log(data);
+  }
+
+  async function createContract(){
+    alert("Contract creation");
+    const response = await fetch("https://api.nftport.xyz/v0/contracts", {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": nftPortKey
+      },
+      "body": "{\"chain\":\"polygon\",\"name\":\"Web3Stars\",\"metadata_updatable\":true,\"symbol\":\"DFH\",\"owner_address\":\"0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c\"}"
+    });
+    const data = await response.json();
+    
+    console.log(data);
+    contractTable(data.name,data.symbol,data.owner_adress,data.transaction_hash,data.transaction_external_url);
+  }
+  async function uploadMetadataToIPFS(discordUser,nftAmountPerNFT ,fullName,debtTerm)
+  {
+    const response =await fetch("https://api.nftport.xyz/v0/metadata", {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": nftPortKey
+      },
+      "body": "{\"name\":\"DFH\",\"description\":\"Financing people's education is how societies improves.\",\"file_url\":\"https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1\",\"attributes\":[{\"trait_type\":\"userDiscord\",\"value\":\""+ discordUser+"\"},{\"trait_type\":\"suggestedPrice\",\"value\":"+ nftAmountPerNFT+"},{\"trait_type\":\"fullName\",\"value\":\""+fullName+"\"},{\"trait_type\":\"debtTermDays\",\"value\":"+ debtTerm+"}]}"
+    })
+    const data = await response.json();
+    return data.metadata_uri;
+
+  }
+
+  async function mintNFT(metadataUri,minToThisAddress,contract_address){
+    console.log(metadataUri);
+    const response = await fetch("https://api.nftport.xyz/v0/mints/customizable", {
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "0a108b59-a733-49ff-bc04-6381a941af88"
+      },
+      "body": "{\"chain\":\"polygon\",\"contract_address\":\"0x8B4A8EEC90198d44709599Ded620236885e5059B,\"metadata_uri\":\""+ metadataUri+"\",\"mint_to_address\":\"0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c\"}"
+    })
+  
+    const data = await response.json();
+    return data;
+   
+  }
+
+  async function contractTable(nftName,nftSymbol,owner_adress,transaction_hash,transaction_external_url) {
+
+    let moralisUser = localStorage.getItem("moralisUser");
+    let moralisAddress = localStorage.getItem("moralisAddress");
+    const Contract= Moralis.Object.extend("Contract");
+    const contract= new Contract();
+    contract.set("username", moralisUser);
+    contract.set("address", moralisAddress);
+    contract.set("owner_address", owner_adress);
+    contract.set("transaction_hash",transaction_hash);
+    contract.set("transaction_external_url",transaction_external_url);
+    contract.set("nftName", nftName);
+    contract.set("nftSymbol", nftSymbol);
+
+    contract.save()
+    .then((request) => {
+      // Execute any logic that should take place after the object is saved.
+      console.log("Contract OK");
+    }, (error) => {
+      // Execute any logic that should take place if the save fails.
+      // error is a Moralis.Error with an error code and message.
+      alert('Failed to create new object, with error code: ' + error.message);
+    });
+
+  }
+
+
   async function onlyNumberKey(evt) {        
     // Only ASCII character in that range allowed
     var ASCIICode = (evt.which) ? evt.which : evt.keyCode
@@ -93,10 +176,11 @@ async function logOut() {
         return false;
     }
   }
-  
+
   window.onload = function() {
     readData();
   };
-
+  
   document.getElementById("btnLogin").onclick = login;
   document.getElementById("btnLogout").onclick = logOut;
+  document.getElementById("btnCreateContract").onclick = createContract;
