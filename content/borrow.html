@@ -45,128 +45,69 @@
   </head>
   <body>
     
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">DFH</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Borrow</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Lend</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pay</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="recruit.html">Recruit</a>
-          </li>
-        </ul>
-          <button class="btn btn-primary" id="btnLogin" >Connect</button>
-          <div style="padding-right: 15px;"></div>
-          <button class="btn btn-danger" id="btnLogout">Log Out</button>
-      </div>
-    </div>
-  </nav>
-</header>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">DFH</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="borrow.html">Borrow</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lend.html">Lend</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pay.html">Pay</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="recruit.html">Recruit</a>
+              </li>
+            </ul>
+              <button class="btn btn-primary" id="btnLogin" >Connect</button>
+              <div style="padding-right: 15px;"></div>
+              <button class="btn btn-danger" id="btnLogout">Log Out</button>
+          </div>
+        </div>
+      </nav>
+    </header>
 
 <main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+</br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-6">
+    <p style="font-size:25px;font-weight: bold;">Request</p>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Full Name :</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" >
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1 style="color:#000000;">Financing people's education is how societies improves.</h1>
-            <p style="color:#000000;">Let's support some careers :) </p>
-            <p><a class="btn btn-lg btn-primary" href="#">Lend</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1 style="color:#000000;">Here is the right place to recuit some verified web3 developers</h1>
-            <p style="color:#000000;"> Search throught different loans to pay par of that career</p>
-            <p><a class="btn btn-lg btn-primary" href="recruit.html">Search</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1 style="color:#000000;">¿Are you looking for a loan for you web3 career?</h1>
-            <p style="color:#000000;">Here is the right place with good education model versus the traditional education</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Request a Loan</a></p>
-          </div>
-        </div>
-      </div>
+  </br>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" style="font-size:20px;color: black;">Reason of request that money (be concise):</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <br>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Discord User:</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" >
+    </div>
+  </br>
+    <center>
+      <button class="btn btn-primary" id="btnLogin" style="float: right;" >Request</button>
+    </center>
   </div>
 
-
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
- 
-  <div class="container marketing">
-    <p style="font-size:25px;font-weight: bold;">Community Stories</p>
-  </br>
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#EBE679"/><text x="50%" y="50%" fill="#EBE679" dy=".3em"></text></svg>
-
-        <h2>Maria</h2>
-        <p style="font-weight: bold">Student</p>
-        <p>Thanks for the support, i really glad to hear about this platform 6 months ago</p>
-        <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#8D86C9"/><text x="50%" y="50%" fill="#8D86C9" dy=".3em"></text></svg>
-
-        <h2>William</h2>
-        <p style="font-weight: bold">Student</p>
-        <p>I had a hard time looking for support in my country, this platform is really impressive, I like the transparency and community support.</p>
-        <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#1021AA"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
-
-        <h2>Aisha</h2>
-        <p style="font-weight: bold">Recruiter</p>
-        <p>Wow , i really like this site, so much talented web3 developers and amazing community</p>
-        <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-
+  </div>
+  <div class="col-md-1"></div>
+</div>
 
     <!-- START THE FEATURETTES -->
 
