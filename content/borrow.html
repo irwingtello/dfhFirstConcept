@@ -69,6 +69,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="recruit.html">Recruit</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mint.html">Mint</a>
+              </li>
             </ul>
               <button class="btn btn-primary" id="btnLogin" >Connect</button>
               <div style="padding-right: 15px;"></div>
@@ -77,7 +80,6 @@
         </div>
       </nav>
     </header>
-
 <main>
 
 </br>
@@ -87,21 +89,26 @@
     <p style="font-size:25px;font-weight: bold;">Request</p>
     <div class="form-group">
       <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Full Name :</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" >
+      <input type="email" class="form-control" id="txtFullName" >
     </div>
   </br>
     <div class="form-group">
       <label for="exampleFormControlTextarea1" style="font-size:20px;color: black;">Reason of request that money (be concise):</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="txtReasons" rows="3"></textarea>
     </div>
-    <br>
+  </br>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Amount (USD):</label>
+      <input type="number"  class="form-control" id="txtAmountUSD" onkeypress="return onlyNumberKey(event)" class="numbersOnly">
+    </div>
+  </br>
     <div class="form-group">
       <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Discord User:</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" >
+      <input type="email" class="form-control" id="txtDiscordUser" >
     </div>
   </br>
     <center>
-      <button class="btn btn-primary" id="btnLogin" style="float: right;" >Request</button>
+      <button class="btn btn-primary" id="btnRequest" style="float: right;" >Request</button>
     </center>
   </div>
 
@@ -127,7 +134,7 @@
 
 
     <script src="../resources/bootstrap/scripts/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./borrow.js"></script>
       
   </body>
 </html>

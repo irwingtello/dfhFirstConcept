@@ -8,13 +8,20 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>DFH</title>
 
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+    <script src="../resources/web3/bignumber.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
     
 
     <!-- Bootstrap core CSS -->
+    <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
     <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 
     <style>
       .bd-placeholder-img {
@@ -133,31 +140,10 @@
   <!-- Wrap the rest of the page in another container to center all the content. -->
  
   <div class="container marketing">
-    <p style="font-size:25px;font-weight: bold;">Web3 Experts</p>
-  </br>
+    <p style="font-size:25px;font-weight: bold;">Mint</p>
     <!-- Three columns of text below the carousel -->
     <div class="row">
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#EBE679"/><text x="50%" y="50%" fill="#EBE679" dy=".3em"></text></svg>
-
-        <h2>Jennifer</h2>
-        <p style="font-weight: bold">Solidity Dev</p>
-        <p><a class="btn btn-primary" href="https://discord.gg/usnta76W">Recruit &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#8D86C9"/><text x="50%" y="50%" fill="#8D86C9" dy=".3em"></text></svg>
-
-        <h2>Michael</h2>
-        <p style="font-weight: bold">Web 3 FrontEnd Developer</p>
-        <p><a class="btn btn-primary" href="https://discord.gg/usnta76W">Recruit &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#1021AA"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></svg>
-
-        <h2>Lisa</h2>
-        <p style="font-weight: bold">Moralis Expert</p>
-        <p><a class="btn btn-primary" href="https://discord.gg/usnta76W">Recruit &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="iterative"></div>
     </div><!-- /.row -->
 
 
@@ -179,7 +165,7 @@
 
 
     <script src="../resources/bootstrap/scripts/bootstrap.bundle.min.js"></script>
-
+    <script type="text/javascript" src="./mint.js"></script>
       
   </body>
 </html>
