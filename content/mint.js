@@ -93,6 +93,7 @@ async function logOut() {
     console.log(metadata);
     const data= await mintNFT(metadata,"0x29a1093636a87810DF3Cb79FCB8C76cC4d80e00c","0x8B4A8EEC90198d44709599Ded620236885e5059B");
     console.log(data);
+    alert("Please go to open sea to sell the NFT")
   }
 
   async function createContract(){
@@ -109,9 +110,11 @@ async function logOut() {
     
     console.log(data);
     contractTable(data.name,data.symbol,data.owner_adress,data.transaction_hash,data.transaction_external_url);
+    alert("Contract created");
   }
   async function uploadMetadataToIPFS(discordUser,nftAmountPerNFT ,fullName,debtTerm)
   {
+    alert("Uploading metadata to IPFS...");
     const response =await fetch("https://api.nftport.xyz/v0/metadata", {
       "method": "POST",
       "headers": {
@@ -121,11 +124,13 @@ async function logOut() {
       "body": "{\"name\":\"DFH\",\"description\":\"Financing people's education is how societies improves.\",\"file_url\":\"https://gateway.pinata.cloud/ipfs/QmbFyeWzoTkSdXgtQCkxWFLvq6TBRgqNb5cE6aQHV5mWJz?preview=1\",\"attributes\":[{\"trait_type\":\"userDiscord\",\"value\":\""+ discordUser+"\"},{\"trait_type\":\"suggestedPrice\",\"value\":"+ nftAmountPerNFT+"},{\"trait_type\":\"fullName\",\"value\":\""+fullName+"\"},{\"trait_type\":\"debtTermDays\",\"value\":"+ debtTerm+"}]}"
     })
     const data = await response.json();
+    alert("Uploading Ended");
     return data.metadata_uri;
 
   }
 
   async function mintNFT(metadataUri,minToThisAddress,contract_address){
+    alert("Minting NFT...");
     console.log(metadataUri);
     let body =  "{\"chain\":\"polygon\",\"contract_address\":\""+contract_address +"\",\"metadata_uri\":\""+ metadataUri+"\",\"mint_to_address\":\""+minToThisAddress+"\"}";
     console.log(body);
@@ -138,6 +143,7 @@ async function logOut() {
       "body":body
     })
     const data = await response.json();
+    alert("Minting Ended...");
     return data;
    
   }
@@ -181,7 +187,12 @@ async function logOut() {
   window.onload = function() {
     readData();
   };
+
+  async function dfhStore() {
+    window.location.href="https://opensea.io/dfhv2";
+  }
   
   document.getElementById("btnLogin").onclick = login;
   document.getElementById("btnLogout").onclick = logOut;
   document.getElementById("btnCreateContract").onclick = createContract;
+  document.getElementById("btnDFHStore").onclick = dfhStore;
