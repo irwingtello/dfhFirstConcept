@@ -187,7 +187,12 @@ async function logOut() {
   window.onload = function() {
     readData();
   };
+
+  async function dfhStore() {
+    window.location.href="https://opensea.io/dfhv2";
+  }
   
   document.getElementById("btnLogin").onclick = login;
   document.getElementById("btnLogout").onclick = logOut;
   document.getElementById("btnCreateContract").onclick = createContract;
+  document.getElementById("btnDFHStore").onclick = dfhStore;
