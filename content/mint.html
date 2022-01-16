@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>DFH</title>
+
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+    <script src="../resources/web3/bignumber.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">DFH</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="borrow.html">Borrow</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://opensea.io/dfhv2">Lend</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://opensea.io/dfhv2">Pay</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="recruit.html">Recruit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mint.html">Mint</a>
+              </li>
+            </ul>
+              <button class="btn btn-primary" id="btnLogin" >Connect</button>
+              <div style="padding-right: 15px;"></div>
+              <button class="btn btn-danger" id="btnLogout">Log Out</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<main>
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1 style="color:#000000;">Financing people's education is how societies improves.</h1>
+            <p style="color:#000000;">Let's support some careers :) </p>
+            <p><a class="btn btn-lg btn-primary" href="https://opensea.io/dfhv2">Lend</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1 style="color:#000000;">Here is the right place to recruit some verified web3 developers</h1>
+            <p style="color:#000000;"> Search throught different loans to pay par of that career</p>
+            <p><a class="btn btn-lg btn-primary" href="recruit.html">Search</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg  width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#6EFAFB"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1 style="color:#000000;">¿Are you looking for a loan for you web3 career?</h1>
+            <p style="color:#000000;">Here is the right place with good education model versus the traditional education</p>
+            <p><a class="btn btn-lg btn-primary" href="borrow.html">Request a Loan</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+ 
+  <div class="container marketing">
+    <p style="font-size:25px;font-weight: bold;">Mint</p>
+    <button class="btn btn-primary" id="btnCreateContract" >Create contract for first time</button>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="iterative"></div>
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; Irwing Tello</p>
+  </footer>
+</main>
+
+
+    <script src="../resources/bootstrap/scripts/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./mint.js"></script>
+      
+  </body>
+</html>

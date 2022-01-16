@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>DFH</title>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    
+    <script src="../resources/web3/bignumber.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <script src="../resources/jquery/jquery-3.6.0.min.js"></script>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">DFH</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="borrow.html">Borrow</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://opensea.io/dfhv2">Lend</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://opensea.io/dfhv2">Pay</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="recruit.html">Recruit</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mint.html">Mint</a>
+              </li>
+            </ul>
+              <button class="btn btn-primary" id="btnLogin" >Connect</button>
+              <div style="padding-right: 15px;"></div>
+              <button class="btn btn-danger" id="btnLogout">Log Out</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+<main>
+
+</br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-6">
+    <p style="font-size:25px;font-weight: bold;">Request</p>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Full Name :</label>
+      <input type="email" class="form-control" id="txtFullName" >
+    </div>
+  </br>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" style="font-size:20px;color: black;">Reason of request that money (be concise):</label>
+      <textarea class="form-control" id="txtReasons" rows="3"></textarea>
+    </div>
+  </br>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Amount (USD):</label>
+      <input type="number"  class="form-control" id="txtAmountUSD" onkeypress="return onlyNumberKey(event)" class="numbersOnly">
+    </div>
+  </br>
+    <div class="form-group">
+      <label for="exampleFormControlInput1" style="font-size:20px;color: black;">Discord User:</label>
+      <input type="email" class="form-control" id="txtDiscordUser" >
+    </div>
+  </br>
+    <center>
+      <button class="btn btn-primary" id="btnRequest" style="float: right;" >Request</button>
+    </center>
+  </div>
+
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; Irwing Tello</p>
+  </footer>
+</main>
+
+
+    <script src="../resources/bootstrap/scripts/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./borrow.js"></script>
+      
+  </body>
+</html>
