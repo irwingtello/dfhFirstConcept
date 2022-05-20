@@ -25,24 +25,38 @@ fetch('./assets/mocks/blockchains.json')
           const nfts = data.result;
       
           let listElements = '';
-
+          let subListElements='';
           nfts.forEach((nft) => {
             const metadata = JSON.parse(nft.metadata);
             if (!metadata) return;
-            listElements += `
-              <tr>
-                ${Object.keys(metadata).map(key => {
-                  return `
-                    <td>
-                      ${key === 'image' ? `<img width="50px" src="${metadata[key]}" />` : metadata[key] }
-                    </td>
-                  `;
-                })}
-              </tr>
-            `;
+
+            Object.keys(metadata).map(key => {
+              metadata[key]==null?"":
+
+              subListElements+=`
+                <div class="container">
+                <h1>${nft.token_id}</h1>
+                <div class="row">
+                  <div class="col-sm">
+                  ${metadata[key]==null?"":key}
+                  </div>
+                  <div class="col-sm">
+                  ${
+                    metadata[key]==null?"":
+                             key.includes("image")?`<img width="50%" src="${metadata[key]}" />`:metadata[key]
+                  }
+                  </div>
+                </div>
+              </div>
+              `;
+              ;
+
+             });
+
+
           });
 
-          ulRef.innerHTML = listElements
+          ulRef.innerHTML = subListElements
         })
     });
 

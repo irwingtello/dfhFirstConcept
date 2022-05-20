@@ -12,16 +12,30 @@
     <!-- Loading CSS Styles -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 16px;
+      }
+      </style>
   </head>
 
   <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-md-12">
 				<h2>Dashboard</h2>
 				<input type="text" placeholder="Address">
 				<select id="blockchains-list"></select>
-				<table class="table row-6" id="nfts-list"></table>
+        <div class="row">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="nfts-list"></div>
+        </div><!-- /.row -->
 			</div>
 		</div>
 	</div>
