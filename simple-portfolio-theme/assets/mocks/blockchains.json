@@ -1,0 +1,32 @@
+[
+    {
+        "chainId": "0x1",
+        "currentSymbol": "ETH",
+        "blockExplorerUrl": "https://etherscan.io",
+        "wrapped": "12ejpo13j"
+    },
+    {
+        "chainId": "0x38",
+        "currentSymbol": "BNB",
+        "blockExplorerUrl": "https://www.bscscan.com/",
+        "wrapped": "12ejpo13j"
+    },
+    {
+        "chainId": "0x89",
+        "currentSymbol": "Polygon",
+        "blockExplorerUrl": "https://www.bscscan.com/",
+        "wrapped": "12ejpo13j"
+    },
+    {
+        "chainId": "0xa86a",
+        "currentSymbol": "Avalanche",
+        "blockExplorerUrl": "https://www.bscscan.com/",
+        "wrapped": "12ejpo13j"
+    },
+    {
+        "chainId": "0xfa",
+        "currentSymbol": "Fantom",
+        "blockExplorerUrl": "https://www.bscscan.com/",
+        "wrapped": "12ejpo13j"
+    }
+]
